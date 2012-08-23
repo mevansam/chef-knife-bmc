@@ -8,24 +8,24 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    command(gem 'knife-baremetalcloud')
+    gem 'knife-baremetalcloud'
 
 And then execute:
 
-    command($ bundle)
+    $ bundle
 
 Or install it yourself as:
 
-    command($ gem install knife-baremetalcloud)
+    $ gem install knife-baremetalcloud
 
 Usage
 -----
 
 ## Available commands:
-command(knife baremetalcloud list configurations (options))
-command(knife baremetalcloud list images (options))
-command(knife baremetalcloud list servers (options))
-command(knife baremetalcloud server create (options))
+    knife baremetalcloud list configurations (options)
+    knife baremetalcloud list images (options)
+    knife baremetalcloud list servers (options)
+    knife baremetalcloud server create (options)
 
 ### List Configurations
 #### Description
@@ -37,7 +37,7 @@ This command list all available server's configurations at baremetalcloud.
 -x, --username USERNAME          Customer username
 
 #### Usage
-command($ knife baremetalcloud list configurations -x USERNAME -P PASSWORD)
+    $ knife baremetalcloud list configurations -x USERNAME -P PASSWORD
 
 #### Example of Output
 Column description:
@@ -68,7 +68,7 @@ This command list all available images at baremetalcloud.
 -x, --username USERNAME          Customer username
 
 #### Usage
-command($ knife baremetalcloud list images -x USERNAME -P PASSWORD)
+    $ knife baremetalcloud list images -x USERNAME -P PASSWORD
 
 #### Example of Output
 Column description:
@@ -99,7 +99,7 @@ This command list all servers from a customer account at baremetalcloud.
 -x, --username USERNAME          Customer username
 
 #### Usage
-command($ knife baremetalcloud list servers -x USERNAME -P PASSWORD)
+    $ knife baremetalcloud list servers -x USERNAME -P PASSWORD
 
 #### Example of Output
 Column description:
@@ -126,7 +126,7 @@ This command add and bootstrap a server at baremetalcloud.
 -r, --run-list RUN_LIST          Comma separated list of roles/recipes to apply
 
 #### Usage
-command($ knife baremetalcloud list images -x USERNAME -P PASSWORD -C 'santaclara-ca-usa 2.8 GHz Paxville 2GB DDR-400 73.0GB 3.5" SCSI 10000RPM' -i 'CentOS 5.8' -n 'myChefServer' -r 'myrole[cookbook]' )
+    $ knife baremetalcloud list images -x USERNAME -P PASSWORD -C 'santaclara-ca-usa 2.8 GHz Paxville 2GB DDR-400 73.0GB 3.5" SCSI 10000RPM' -i 'CentOS 5.8' -n 'myChefServer' -r 'myrole[cookbook]'
 
 
 Contributing
