@@ -2,9 +2,9 @@ require 'fog'
 
 class Chef
   class Knife
-    class BaremetalcloudListAvailableServers < Knife
+    class BaremetalcloudListConfigurations < Knife
       
-      banner "knife baremetalcloud list available servers (options)"
+      banner "knife baremetalcloud list configurations (options)"
       
       option :baremetalcloud_username,
         :short => '-x USERNAME',
@@ -16,13 +16,18 @@ class Chef
         :long => '--password PASSWORD',
         :description => 'Customer password'
 
-      def locate_config_value(key)
-        key = key.to_sym
-        config[key] || Chef::Config[:knife][key]
+      # Method to handle baremetalcloud errors
+      def errorHandling(response)
+        # Error handling
+        unless response[:error].nil?
+          puts "#{ui.color("ERROR:", :bold)} #{response[:error][:name]}"
+          puts "Description: #{response[:error][:description]}"
+          exit 1 
+        end
       end
       
-      def run
-        
+      # Method to verify mandatory arguments
+      def verifyArguments
         # Parameters :baremetalcloud_username and :baremetalcloud_password are mandatory
         unless config[:baremetalcloud_username]
           ui.error("--username is a mandatory parameter")
@@ -34,6 +39,14 @@ class Chef
           exit 1
         end
         
+      end
+      
+      # Plugin method called by Knife
+      def run
+        
+        # Verify mandatory arguments
+        verifyArguments
+        
         # Configure the API abstraction @bmc
         @bmc = Fog::Compute.new({
           :bare_metal_cloud_username => config[:baremetalcloud_username],
@@ -41,13 +54,14 @@ class Chef
           :provider => 'BareMetalCloud'
         })
         
-        response = @bmc.list_available_servers.body[:"available-server"]
+        # Get the API response
+        response = @bmc.list_available_servers.body
         
-       if response.length > 1
-          #puts "#{ui.color("String", :cyan)}\t#{ui.color("Quantity", :cyan)}"
-          response.each do |r|
-            puts "#{r[:configuration]}\t#{r[:quantity]}"
-          end
+        # Error handling
+        errorHandling(response)
+        
+        response[:"available-server"].each do |resp|
+          puts "#{resp[:quantity]}\t#{resp[:configuration]}"
         end
         
       end
