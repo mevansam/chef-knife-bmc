@@ -115,7 +115,7 @@ Column description:
 
 ### Server Create
 #### Description
-This command adds the bootstrap and a server with baremetalcloud.
+The command below will add a server with baremetalcloud and bootstrap.
 
 #### Parameters
 -P, --password PASSWORD          Customer password
