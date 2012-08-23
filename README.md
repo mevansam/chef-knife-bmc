@@ -1,7 +1,7 @@
-Knife baremetalcloud plugin
+baremetalcloud's Knife plugin
 ===========================
 
-This is the baremetalcloud implementation for Chef's Knife command. The plugin allows Chef users to manage compute nodes on baremetalcloud infrastructure.  
+This is baremetalcloud's implementation for Chef's Knife command. The plugin allows Chef users to manage compute nodes on baremetalcloud's infrastructure.  
 
 Installation
 ------------
@@ -61,7 +61,7 @@ Column description:
 
 ### List Images
 #### Description
-This command list all available images at baremetalcloud.
+This command lists all the available images with baremetalcloud.
 
 #### Parameters
 -P, --password PASSWORD          Customer password
@@ -91,7 +91,7 @@ Column description:
 
 ### List Servers
 #### Description
-This command list all servers from a customer account at baremetalcloud.
+This command lists all servers from a customers account with baremetalcloud.
 
 
 #### Parameters
@@ -115,7 +115,7 @@ Column description:
 
 ### Server Create
 #### Description
-This command add and bootstrap a server at baremetalcloud.
+This command adds a bootstrap and server with baremetalcloud.
 
 #### Parameters
 -P, --password PASSWORD          Customer password
