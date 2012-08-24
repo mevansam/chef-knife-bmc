@@ -24,7 +24,7 @@ class Chef
         :short => '-P PASSWORD',
         :long => '--password PASSWORD',
         :description => 'Customer password'
-      
+        
       option :config,
         :short => '-C CONFIG',
         :long => '--configuration CONFIG',
@@ -47,8 +47,6 @@ class Chef
         :proc => lambda { |o| o.split(/[\s,]+/) },
         :default => []
           
-      
-
       # Method to check when "system" credentials are available
       # Node's IP Address is updated
       def isNodeReady(serverId)
@@ -129,10 +127,10 @@ class Chef
         bootstrap = Chef::Knife::Bootstrap.new
         bootstrap.name_args = locateConfigValue(:chef_node_name)
         bootstrap.config[:run_list] = locateConfigValue(:run_list)
-        bootstrap.config[:identity_file] = locateConfigValue[:identity_file]
+        bootstrap.config[:identity_file] = locateConfigValue(:identity_file)
         bootstrap.config[:ssh_user] = locateConfigValue(:ssh_user)
         bootstrap.config[:ssh_password] = locateConfigValue(:ssh_password)
-        bootstrap.config[:use_sudo] = true unless locateConfigValue[:ssh_user] == 'root'
+        bootstrap.config[:use_sudo] = true unless locateConfigValue(:ssh_user) == 'root'
         bootstrap.config[:environment] = config[:environment]
         bootstrap
       end

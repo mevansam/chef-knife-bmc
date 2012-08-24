@@ -55,7 +55,7 @@ class Chef
         })
         
         # Get the API response
-        response = @bmc.list_available_servers.body
+        response = @bmc.list_configurations.body
         
         # Error handling
         errorHandling(response)

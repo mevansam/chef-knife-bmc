@@ -3,7 +3,7 @@ require File.expand_path('../lib/knife-baremetalcloud/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = ["knife-baremetalcloud"]
-  gem.version       = '0.0.4'
+  gem.version       = '0.0.5'
   gem.authors       = ["Diego Desani"]
   gem.email         = ["diego@newservers.com"]
   gem.summary       = %q{baremetalcloud Compute Support for Chef's Knife Command}
