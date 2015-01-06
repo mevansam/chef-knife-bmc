@@ -1,14 +1,14 @@
 baremetalcloud's Knife plugin
 ===========================
 
-This is baremetalcloud's implementation for Chef's Knife command. The plugin allows Chef users to manage compute nodes on baremetalcloud's infrastructure.  
+This is baremetalcloud's implementation for Chef's Knife command. The plugin allows Chef users to manage compute nodes on baremetalcloud's infrastructure. This is a clone of the original which can be found [here](https://github.com/baremetalcloud/knife-baremetalcloud).
 
 Installation
 ------------
 
 Add this line to your application's Gemfile:
 
-    gem 'knife-baremetalcloud'
+    gem 'knife-bmc'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install knife-baremetalcloud
+    $ gem install knife-bmc
 
 Usage
 -----
